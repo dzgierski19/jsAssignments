@@ -46,10 +46,11 @@ const skipLettersInSentence = (sentence, skip) => {
     sentenceIsString(sentence)
     const array1 = sentence.split('')
     console.log(array1)
-    const filteredSentence = array1.filter(function(element, index, array){
+    const filteredArray = array1.filter(function(element, index, array){
         return index%skip!==0
     })
-    console.log(filteredSentence.join(''))
+    const filteredSentence = filteredArray.join('')
+    console.log(filteredSentence)
 }
 
 const myResult1 = skipLettersInSentence ("Ethereum is cool", 4)
