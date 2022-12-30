@@ -51,14 +51,15 @@ const skipLettersInSentence = (sentence, skip) => {
     })
     const filteredSentence = filteredArray.join('')
     console.log(filteredSentence)
-}
+    return filteredSentence
+} 
 
 const myResult1 = skipLettersInSentence ("Ethereum is cool", 4)
 console.log (myResult1)
 
 const myResult2 = skipLettersInSentence (54674455647645, 3)
 console.log (myResult2)
-    
+
     /*const filteredArray = array1.filter ((element, index, array) => {
         array.push("filtered letters")
         return sentence[index]%skip === 0
