@@ -13,7 +13,7 @@ for (let i=1; i<treeHeight; i++) {
 //WALIDACJA
 
 const treeHeightSection = (treeHeight) => {
-    if (!(1<=treeHeight<=10)) {
+    if (!(treeHeight>=1 && treeHeight<=10)) {
         throw new Error ("Please type number from 1 to 10")
     }
 }
@@ -55,13 +55,13 @@ const tree = []
     let modifiedStar = star2.repeat(i)
     console.log(modifiedStar)
     tree.push(modifiedStar)
-    i++
 } return tree
 } 
 const myResult1 = console.log(showChristmasTree(4))
 console.log (myResult1)
 
-console.log(showChristmasTree(4.5))
+//console.log(showChristmasTree(4.5))
+console.log(showChristmasTree(4))
 
 showChristmasTree(4);
 // W konsoli powinno wyświetlić się:
