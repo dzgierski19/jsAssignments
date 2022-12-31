@@ -32,7 +32,7 @@ const treeHeightIsInteger = (treeHeight) => {
     } 
 }
 
-//const space = ' '
+const space = ' '
 
 /*
 const topLineOfChristmasTree = (space.repeat(treeHeight+1) + '*') 
