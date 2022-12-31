@@ -32,32 +32,35 @@ const treeHeightIsInteger = (treeHeight) => {
     } 
 }
 
-const space = ' '
+//const space = ' '
 
-
-const topLineOfChristmasTree = (space.repeat(4) + '*') 
+/*
+const topLineOfChristmasTree = (space.repeat(treeHeight+1) + '*') 
 console.log(topLineOfChristmasTree)
 
-const bottomLineOfChristmasTree = (space.repeat(4) + '|')
+const bottomLineOfChristmasTree = (space.repeat(treeHeight+1) + '|')
 console.log(bottomLineOfChristmasTree)
-//console.log('\\')
+//console.log('\\')*/
 
 const showChristmasTree = (treeHeight) => {
 treeHeightIsNumber(treeHeight)
 treeHeightSection(treeHeight)
 treeHeightIsInteger(treeHeight)
+const topLineOfChristmasTree = (space.repeat(treeHeight+1) + '* \n') 
+const bottomLineOfChristmasTree = (space.repeat(treeHeight+1) + '|')
+//const wholeTree = bottomLineOfChristmasTree + modifiedTree + topLineOfChristmasTree
 const tree = []
-    for (let i = 1; i<treeHeight; i++) {
-    const star2 = '*'
+    for (let i = 0; i<treeHeight-1; i++) {
+    const star2 = 'x'
     const space = ' '
     const leftSlash = '/'
     const rightSlash = '\\ \n'
-    const modifiedTree = space.repeat(treeHeight-i) + leftSlash + star2.repeat(i) + star2 + rightSlash
+    const modifiedTree = space.repeat(treeHeight-i) + leftSlash + star2.repeat(2*i) + star2 + rightSlash
     tree.push(modifiedTree)
-} return treeString = tree.join('')
+} return treeString = topLineOfChristmasTree + tree.join('') + bottomLineOfChristmasTree
 } 
 
-const myResult1 = showChristmasTree(4)
+const myResult1 = showChristmasTree(5)
 console.log (myResult1)
 
 showChristmasTree(4);
