@@ -52,7 +52,7 @@ const tree = []
     const space = ' '
     const leftSlash = '/'
     const rightSlash = '\\ \n'
-    const modifiedTree = space.repeat(i) + leftSlash + star2.repeat(treeHeight-i) + star2 + rightSlash
+    const modifiedTree = space.repeat(treeHeight-i) + leftSlash + star2.repeat(i) + star2 + rightSlash
     tree.push(modifiedTree)
 } return treeString = tree.join('')
 } 
