@@ -34,11 +34,13 @@ const treeHeightIsInteger = (treeHeight) => {
 
 const space = ' '
 
+
 const topLineOfChristmasTree = (space.repeat(4) + '*') 
 console.log(topLineOfChristmasTree)
 
 const bottomLineOfChristmasTree = (space.repeat(4) + '|')
 console.log(bottomLineOfChristmasTree)
+console.log('\\')
 
 let star2 = '*'
 let doubleStar = (star2.repeat())
@@ -49,19 +51,23 @@ treeHeightIsNumber(treeHeight)
 treeHeightSection(treeHeight)
 treeHeightIsInteger(treeHeight)
 const tree = []
-    for (let i = 0; i<treeHeight; i++) {
+    for (let i = 1; i<treeHeight; i++) {
     const star2 = '*'
     const space = ' '
-    let modifiedStar = star2.repeat(i)
-    console.log(modifiedStar)
-    tree.push(modifiedStar)
-} return tree
+    const leftSlash = '/'
+    const rightSlash = '\\'
+    const modifiedTree = space.repeat(i) + leftSlash + star2.repeat(i-treeHeight) + star2 + rightSlash
+    console.log(modifiedTree)
+    tree.push(modifiedTree)
+} return treeString = tree.join('')
 } 
+
 const myResult1 = console.log(showChristmasTree(4))
 console.log (myResult1)
 
 //console.log(showChristmasTree(4.5))
 console.log(showChristmasTree(4))
+
 
 showChristmasTree(4);
 // W konsoli powinno wyświetlić się:
