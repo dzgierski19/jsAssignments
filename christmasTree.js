@@ -26,54 +26,54 @@ const treeHeightisUnder = (treeHeight) => {
 
 */
 
-const treeHeightRange = (treeHeight, minRange, maxRange) => {
+const isTreeHeightInRange = (treeHeight, minRange, maxRange) => {
     if ((treeHeight<minRange || treeHeight>maxRange)) {
-        throw new Error ("Must be a number from specified range")
+        throw new Error (`Must be a number from specified range: from ${minRange} to ${maxRange}`)
 }
 }
 
-
-const treeHeightIsNumber = (treeHeight) => {
-    if (typeof treeHeight !== "number" || isNaN(treeHeight)){
+const isNumber = (input) => {
+    if (typeof input !== "number" || isNaN(input)){
         throw new Error ("Must be a number")
     }
 }
 
-const treeHeightIsInteger = (treeHeight) => {
-    if (!(Number.isInteger(treeHeight))) {
+const isInteger = (input) => {
+    if (!(Number.isInteger(input))) {
         throw new Error ("Must be an integer")
     } 
 }
+ 
 
-const showChristmasTree = (treeHeight) => {
-    treeHeightIsNumber(treeHeight)
-    //treeHeightisUnder(treeHeight)
-    //treeHeightisAbove(treeHeight)
-    treeHeightRange(treeHeight, 1, 10)
-    treeHeightIsInteger(treeHeight)
-    const space = ' '
-const topLineOfChristmasTree = (space.repeat(treeHeight) + '* \n') 
-const bottomLineOfChristmasTree = (space.repeat(treeHeight) + '|')
-//const wholeTree = bottomLineOfChristmasTree + modifiedTree + topLineOfChristmasTree
-const tree = []
-const star2 = 'x'
-const leftSlash = '/'
-const rightSlash = '\\ \n'
-    for (let i = 0; i<treeHeight; i++) {
-    const modifiedTree = space.repeat(treeHeight-i-1) + leftSlash + star2.repeat(2*i) + star2 + rightSlash
-    tree.push(modifiedTree)
-} return treeString = topLineOfChristmasTree + tree.join('') + bottomLineOfChristmasTree
-} 
+// const showChristmasTree = (treeHeight) => {
+//     isNumber(treeHeight)
+//     //treeHeightisUnder(treeHeight)
+//     //treeHeightisAbove(treeHeight)
+//     isTreeHeightInRange(treeHeight, 1, 10)
+//     isInteger(treeHeight)
+//     const space = ' '
+// const topLineOfChristmasTree = (space.repeat(treeHeight) + '* \n') 
+// const bottomLineOfChristmasTree = (space.repeat(treeHeight) + '|')
+// //const wholeTree = bottomLineOfChristmasTree + modifiedTree + topLineOfChristmasTree
+// const tree = []
+// const star2 = 'x'
+// const leftSlash = '/'
+// const rightSlash = '\\ \n'
+//     for (let i = 0; i<treeHeight; i++) {
+//     const modifiedTree = space.repeat(treeHeight-i-1) + leftSlash + star2.repeat(2*i) + star2 + rightSlash
+//     tree.push(modifiedTree)
+// } return treeString = topLineOfChristmasTree + tree.join('') + bottomLineOfChristmasTree
+// } 
 
-const myResult1 = showChristmasTree(4)
-console.log (myResult1)
+// const myResult1 = showChristmasTree(4)
+// console.log (myResult1)
 
 const showChristmasTreeString = (treeHeight) => {
-    treeHeightIsNumber(treeHeight)
+    isNumber(treeHeight)
+    isInteger(treeHeight)
     //treeHeightisUnder(treeHeight)
     //treeHeightisAbove(treeHeight)
-    treeHeightRange(treeHeight, 1, 10)
-    treeHeightIsInteger(treeHeight)
+    isTreeHeightInRange(treeHeight, 1, 10)
     const space = ' '
 const topLineOfChristmasTree = (space.repeat(treeHeight) + '* \n') 
 const bottomLineOfChristmasTree = (space.repeat(treeHeight) + '|')
@@ -82,10 +82,10 @@ let myTree = ""
 const leftSlash = '/'
 const rightSlash = '\\ \n'
 const star = 'x'
-let christmasTree = ''
+
 for(let i = 0 ; i<treeHeight ; i++){
-    myTree += space.repeat(treeHeight-i-1) + leftSlash + star.repeat(2*i) + star + rightSlash
-} return christmasTree = topLineOfChristmasTree + myTree + bottomLineOfChristmasTree
+    myTree += space.repeat(treeHeight-i-1) + leftSlash + star.repeat((2*i)+1) + rightSlash
+} return topLineOfChristmasTree + myTree + bottomLineOfChristmasTree
 } 
 
 const myResult2 = showChristmasTreeString(4)
