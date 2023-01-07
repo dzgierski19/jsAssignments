@@ -13,19 +13,21 @@
 // 2. validacja, że skip jest integerem int OK
 
 
-const skipIsHigherThanZero = (skip) => {
+//zmienić nazwy funkcji w walidacji
+
+const isAboveZero = (skip) => {
     if (skip<=0){
         throw new Error ("Number must be higher than 0")
     }
 }
 
-const skipIsNumber = (skip) => {
+const isNumber = (skip) => {
     if (!(typeof skip === "number" && !isNaN(skip))){
         throw new Error ("Must be a number")
     }
 }
 
-const skipIsInteger = (skip) => {
+const isInteger = (skip) => {
     if (!(Number.isInteger(skip))) {
         throw new Error ("Must be an integer")
     } 
@@ -38,20 +40,20 @@ const sentenceIsString = (sentence) => {
 }
 
 // nie przypisujesz wartości z array filter, przypisać to do zmiennej/stałej
+// do przerobienia na arrow function 52
 
 const skipLettersInSentence = (sentence, skip) => {
-    skipIsNumber(skip)
-    skipIsHigherThanZero(skip)
-    skipIsInteger(skip)
+    isNumber(skip)
+    isAboveZero(skip)
+    isInteger(skip)
     sentenceIsString(sentence)
     const array1 = sentence.split('')
-    console.log(array1)
+    //console.log(array1)
     const filteredArray = array1.filter(function(element, index, array){
         return index%skip!==0
     })
-    const filteredSentence = filteredArray.join('')
-    console.log(filteredSentence)
-    return filteredSentence
+    return filteredArray.join('')
+    //console.log(filteredSentence)
 } 
 
 const myResult1 = skipLettersInSentence ("Ethereum is cool", 4)
