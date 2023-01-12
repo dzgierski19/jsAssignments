@@ -12,17 +12,34 @@ const isStringLengthNotZero = (text) => {
     }
 }
 
+
 const changeFirstLetters = (text) => {
 isTextString(text)
 isStringLengthNotZero(text)
+const array1 = text.split(' ')
+console.log (array1)
+let array1UpperOrLowerCase = array1.reduce (function(element, index, array1) {
+    if (element.toString()===element.toString().toUpperCase()) {
+    return element.toLowerCase() + element.slice(1)
+} else {
+    element[0].toUpperCase() + element.slice(1)
+}
+})
+return array1UpperOrLowerCase.join('')
 
+//let array1LowerCase = array1.map (array1 => array1[0].toLowerCase() + array1.slice(1))
 
+console.log (array1UpperOrLowerCase)
+//console.log (array1LowerCase)
+/*const filteredArray = array1.filter(function(element, index, array){
+    return index.toUpperCase() + index.slice(1)
+})
+console.log (filteredArray)*/
 };
-
 
 //SPRAWDZENIE
 
-const result1 = changeFirstLetters ("Bitcoin is the best asset in the world, not fiat currencies")
+const result1 = changeFirstLetters ("Bitcoin is the best asset in the world, Not fiat currencies")
 
 console.log (result1)
 
