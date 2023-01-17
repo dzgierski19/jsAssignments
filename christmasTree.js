@@ -88,7 +88,7 @@ for(let i = 0 ; i<treeHeight ; i++){
 } return topLineOfChristmasTree + myTree + bottomLineOfChristmasTree
 } 
 
-const myResult2 = showChristmasTreeString(4)
+const myResult2 = showChristmasTreeString(6)
 console.log (myResult2)
 
 // W konsoli powinno wyświetlić się:
