@@ -18,13 +18,13 @@ isTextString(text)
 isStringLengthNotZero(text)
 const array1 = text.split(' ')
 console.log (array1)
-let array1UpperOrLowerCase = array1.reduce (function(element, index, array1) {
+let array1UpperOrLowerCase = array1.reduce ((element, index, array1) => {
     if (element.toString()===element.toString().toUpperCase()) {
     return element.toLowerCase() + element.slice(1)
 } else {
-    element[0].toUpperCase() + element.slice(1)
+    element.toUpperCase() + element.slice(1)
 }
-})
+}, element.toLowerCase())
 return array1UpperOrLowerCase.join('')
 
 //let array1LowerCase = array1.map (array1 => array1[0].toLowerCase() + array1.slice(1))
