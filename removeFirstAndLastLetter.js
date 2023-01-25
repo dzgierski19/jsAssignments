@@ -1,6 +1,6 @@
 //   VALIDATION
 
-const isNumber = (input) => {
+const isString = (input) => {
     if (typeof (input) !== 'string'){
         throw new Error ('Must be a string')
 }
@@ -15,9 +15,9 @@ const isStringLengthInRange = (input) => {
 //   1st SOLUTION 
 
 const removeFirstAndLastLetter = (value) => {
-    isNumber(value)
+    isString(value)
     isStringLengthInRange(value)
-    const slicedValue = value.slice (1,-1)
+    const slicedValue = value.slice (1,-1) //splice
     return slicedValue
 }
 
@@ -27,7 +27,7 @@ console.log (result1)
 //   2nd SOLUTION
 
 const removeFirstAndLastLetter2 = (value) => {
-    isNumber(value)
+    isString(value)
     isStringLengthInRange(value)
     const substringedValue = value.substring (1, value.length-1)
     return substringedValue
@@ -39,12 +39,13 @@ console.log (result2)
 //   3rd SOLUTION
 
 const removeFirstAndLastLetter3 = (value) => {
-    isNumber(value)
+    isString(value)
     isStringLengthInRange(value)
     let array2 = []
     array2 = value.split ('')
     array2.shift()
-    array2.pop()
+    const last = array2.pop()
+    console.log(last)
     return array2.join('')
 }
 
