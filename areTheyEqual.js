@@ -1,17 +1,26 @@
-isInput1TheSameTypeAsInput2 = (input1, input2) => {
-if (input1 !== input2){
-    throw new Error ("You must type the same inputs")
-}
+const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
+if (typeof input1 === "object" && typeof input2 === "object"){
+    return isObjectTheSame (input1, input2)
+} else if (input1 === input2){
+    return true
+} else return false
 }
 
-const isInput1EqualInput2 = (input1, input2) => {
+const areObjectsTheSameLength = (input1, input2) => {
 if (input1.length !== input2.length) { 
     throw new Error ('Inputs are not the same length')
 }
 }
 
-const isIndexTheSame = (input1, input2) => {
-    isInput1EqualInput2 (input1, input2)
+const isInputAnObject = (input1, input2) => {
+    if (typeof input1 !== "object" && typeof input2 !== "object") {
+        throw new Error ("It's not an object")
+    }
+}    
+
+const isObjectTheSame = (input1, input2) => {
+    isInputAnObject (input1, input2)
+    areObjectsTheSameLength (input1, input2)
     if (input1.length === 0 && input2.length === 0) {
         return true
     } else {
@@ -21,39 +30,14 @@ const isIndexTheSame = (input1, input2) => {
         input3 += input1.pop()
         input4 += input2.pop()
         } else return false
-} return isIndexTheSame (input1,input2)
+} return isObjectTheSame (input1,input2)
 }
-
-
-console.log (isIndexTheSame([0,2],[0,2]))
-
-isInputAnObject = (input1, input2) => {
-if (typeof input1 === "object" && input1 === input2) {
-    for (let i=0; i<input1.length; i++) {
-        input1[i] === input2[i]
-        console.log (input1[i])
-        i++
-    } return true
-} else return true
-}
-
-// isInputAnArray = (input) => {
-// if (Array.isArray(input)) {
-//     return input.join()
-// }
-// }
-
-// console.log (isInputAnArray([1,2,3]))
 
 const areTheyEqual = (firstValue, secondValue) => {
-isInput1TheSameTypeAsInput2 (firstValue, secondValue)
-const checkedInput = isInputAnObject (firstValue)
-return checkedInput
+ return areInputsTheSameTypeAndAreNotObjects (firstValue, secondValue)
 }
 
-console.log (typeof ([1]))
-
-const result1 = areTheyEqual([1],[1])
+const result1 = areTheyEqual ([1,2], [1,2,3])
 console.log (result1)
 
 // console.log (areTheyEqual("8", "8")) // true
@@ -69,3 +53,4 @@ console.log (result1)
 // console.log (typeof object1)
 // console.log (object1ToString)
 // console.log (typeof object1ToString)
+
