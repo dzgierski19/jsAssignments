@@ -7,6 +7,8 @@
 // isValidPhoneNumber("123-123 123") // false
 
 
+//zrobić regExa który załatwia reszte poza 3 i 7
+
 const isStringOrNumber = (input) => {
     if (typeof input !== "string" && typeof input !== "number"){
         throw new Error ('Please type number or string')
@@ -25,11 +27,11 @@ const convertNumberToStringOrReturnString = (input) => {
 const isValidPhoneNumber = (value) => {
     const modifiedInput = convertNumberToStringOrReturnString (value)
     console.log (modifiedInput)
-    if (modifiedInput.length === 9 && modifiedInput === modifiedInput.replace (/[^0-9]/g, '')) {
+    if (modifiedInput.length === 9 && modifiedInput.test (/[0-9]/)) {
         return true
-    } else if (modifiedInput.length === 11 && modifiedInput[3] === modifiedInput[3].replace(/[^-]/g, '') && modifiedInput[7] === modifiedInput[7].replace(/[^-]/g, '')) {
+    } else if (modifiedInput.length === 11 &&  modifiedInput[3].test(/-/) &&  modifiedInput[7].test(/-/)) {
         return true
-    } else if (modifiedInput.length === 11 && modifiedInput[3] === modifiedInput[3].replace(/[^ ]/g, '') && modifiedInput[7] === modifiedInput[7].replace(/[^ ]/g, '')) {
+    } else if (modifiedInput.length === 11 &&  modifiedInput[3].test(/ /) && modifiedInput[7].test(/ /)) {
         return true
     } else {
         return false

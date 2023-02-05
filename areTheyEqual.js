@@ -50,6 +50,8 @@
 // console.log (result1)
 
 
+//sprawdzić entries
+
 const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
     if (typeof input1 === "object" && typeof input2 === "object"){
         return isObjectTheSame (input1, input2)
@@ -65,31 +67,21 @@ const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
     }
     
     
-    const isInput1AnObject = (input1) => {
-        if (typeof input1 !== "object") {
+    const isInputAnObject = (input) => {
+        if (typeof input !== "object") {
             throw new Error ("It's not an object")
         } else {
-        let input1Values = Object.values(input1) 
-        let input1Keys = Object.keys(input1)
-        let summedInput1 = input1Values.concat(input1Keys)
-        return summedInput1
+        let inputValues = Object.values(input) 
+        let inputKeys = Object.keys(input)
+        let summedInput = inputValues.concat(inputKeys)
+        return summedInput 
         } 
     }    
     
-    const isInput2AnObject = (input2) => {
-        if (typeof input2 !== "object") {
-            throw new Error ("It's not an object")
-        } else {
-        let input2Values = Object.values(input2)
-        let input2Keys = Object.keys(input2)
-        let summedInput2 = input2Values.concat(input2Keys)
-        return summedInput2
-        } 
-    }    
 
     const isObjectTheSame = (input1, input2) => {
-        const input1Value = isInput1AnObject (input1)
-        const input2Value = isInput2AnObject (input2)
+        const input1Value = isInputAnObject (input1)
+        const input2Value = isInputAnObject (input2) 
         //areObjectsTheSameLength (input1Value, input2Value)
         return isObjectEqualObject (input1Value, input2Value)
     }
@@ -99,11 +91,9 @@ const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
     if (input1.length === 0 && input2.length === 0) {
         return true
     } else {
-        let input5 = ""
-        let input6 = "" 
         if (input1[input1.length-1] === input2[input2.length-1]){
-        input5 += input1.pop()
-        input6 += input2.pop()
+        input1.pop()
+        input2.pop()
         } else return false
 } return isObjectEqualObject (input1, input2)
 }
@@ -113,10 +103,9 @@ const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
     return areInputsTheSameTypeAndAreNotObjects (firstValue, secondValue)
     }
     
-    let person = {name: "John", surname: "John"}
-    let person2 = {name: "John", surname: "John"}
-    
-    const result1 = areTheyEqual ([1,2,3,4], [1,2])
+    let person = {name: "John", surname: "John", lkids: ["Anna", "Billy"]}
+    let person2 = {name: "John", surname: "John", kids: ["Anna", "Billy"]}    
+    const result1 = areTheyEqual (person, person2)
     console.log (result1)
     
     // console.log (areTheyEqual("8", "8")) // true
