@@ -52,6 +52,9 @@
 
 //sprawdzić entries
 
+// 06.02 sprawdzić przyrównać klucze obydwu inputów
+
+
 const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
     if (typeof input1 === "object" && typeof input2 === "object"){
         return isObjectTheSame (input1, input2)
@@ -60,34 +63,59 @@ const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
     } else return false
     }
     
-    const areObjectsTheSameLength = (input1, input2) => {
-    if (input1.length !== input2.length) { 
-        throw new Error ('Inputs are not the same length')
-    }
-    }
-    
-    
     const isInputAnObject = (input) => {
         if (typeof input !== "object") {
             throw new Error ("It's not an object")
         } else {
-        let inputValues = Object.values(input) 
-        let inputKeys = Object.keys(input)
-        let summedInput = inputValues.concat(inputKeys)
-        return summedInput 
+        let inputEntries = Object.entries(input) 
+        return inputEntries 
         } 
-    }    
-    
+    }
+
+    const areObjectsInObject = (input) => {
+      for (const [keys, values] of Object.entries(input)) {
+        if (typeof keys === "object" || typeof values === "object") {
+          console.log(values);
+        }
+      }
+    }
+
+    const areObjectsTheSameLength = (input1, input2) => {
+        if (input1.length !== input2.length) { 
+            throw new Error ('Inputs are not the same length')
+        }
+        }
+
+    const isObjectNested = (input) => {
+        typeof input !== "object"
+    }
+
+    const isObjectNestedInObject = (input) => {
+        if (input.every(isObjectNested) === "true"){
+            return "DUPA"
+        } else {
+            return "brak obiektów"
+        }
+    }
+
 
     const isObjectTheSame = (input1, input2) => {
         const input1Value = isInputAnObject (input1)
-        const input2Value = isInputAnObject (input2) 
-        //areObjectsTheSameLength (input1Value, input2Value)
-        return isObjectEqualObject (input1Value, input2Value)
+        const input2Value = isInputAnObject (input2)
+        console.log (input1Value)
+        areObjectsTheSameLength (input1Value, input2Value)
+        console.log (areObjectsInObject (input1Value))
+
+        // if (Object.keys (input1Value) === Object.keys (input2Value)) {
+        //     return true
+        // }
+        // //areObjectsTheSameLength (input1Value, input2Value)
+        // return deepComparsion (input1Value, input2Value)
     }
     
 
-    const isObjectEqualObject = (input1, input2) => {
+
+    const deepComparsion = (input1, input2) => {
     if (input1.length === 0 && input2.length === 0) {
         return true
     } else {
@@ -95,7 +123,7 @@ const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
         input1.pop()
         input2.pop()
         } else return false
-} return isObjectEqualObject (input1, input2)
+} return deepComparsion (input1, input2)
 }
 
 
@@ -103,11 +131,19 @@ const areInputsTheSameTypeAndAreNotObjects = (input1, input2) => {
     return areInputsTheSameTypeAndAreNotObjects (firstValue, secondValue)
     }
     
-    let person = {name: "John", surname: "John", lkids: ["Anna", "Billy"]}
-    let person2 = {name: "John", surname: "John", kids: ["Anna", "Billy"]}    
+    let person = {name: "John", surname: "Doe", kids: "Anna"}
+    let person2 = {name: "John", surname: "Doe", kids: ["Anna", "Billy"]}    
     const result1 = areTheyEqual (person, person2)
     console.log (result1)
-    
+
+    let person3 = {name: "John", surname: "Doe", kid: {name: "Rafał", age: 12}}
+    let person4 = {name: "John", surname: "Doe", kid: {name: "Rafał", age: 11}} 
+    const result2 = areTheyEqual (person3, person4)
+    console.log (result2)
+
+const stringified = JSON.stringify(person3)
+console.log(stringified)
+
     // console.log (areTheyEqual("8", "8")) // true
     
     // const array1 = [1,2,3,4]

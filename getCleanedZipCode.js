@@ -11,6 +11,7 @@
 // getCleanedZipCode(12345) // "12-345"
 // getCleanedZipCode("123456") // ""
 
+/*
 isInputStringOrNumber = (input) => {
     if (typeof input === 'number') {
         return input.toString()
@@ -19,28 +20,49 @@ isInputStringOrNumber = (input) => {
     } else {
         throw new Error ('You must type Number or String')}
 }
+*/
 
-//isString oraz isNumber
+const isStringOrNumber = (input) => {
+    if (typeof input !== "string" && typeof input !== "number") {
+        throw new Error ("You must type string or number")
+    }
+}
+
+const isValueInRange = (input) => {
+    isStringOrNumber(input)
+    const numberToString = input.toString()
+    if (numberToString.length === 5 && (/^\d{5}$/).test(input) === true) {
+        return numberToString.slice (0,2) + '-' + numberToString.slice(2)
+    } else if ((/^\d{2}[ -]\d{3}$/).test(input) === true) {
+        return input.slice(0,2) + '-' + input.slice(3) } 
+    return ""
+}
+
+
+//isString oraz isNumber OK
 //napisać regEx dwie pierwsze cyfry, trzeci spacja -, 4 do konca cyfry
 
+const getCleanedZipCode = isValueInRange("12-355") 
 
-isInputWithNumbersSpacesAndDashes = (input) => {
-    if (input.length === 6 && input[2].test(/[ -]/) && input.test[0](/[0-9]/))  {
-        return input
-    } else if (input.length === 5 && input.test (/[0-9]/)) {
-        return input
-    } else return ""
-}
+console.log (getCleanedZipCode)
 
-const getCleanedZipCode = (value) => {
-const checkedValue = isInputStringOrNumber(value)
-const checkedValueWithNumbersAndSpacesAndDashes = isInputWithNumbersSpacesAndDashes (checkedValue)
-console.log (checkedValueWithNumbersAndSpacesAndDashes)
-const checkedValueWithAnythingButNumbers = checkedValueWithNumbersAndSpacesAndDashes.test (/[0-9]/)
-if (checkedValueWithAnythingButNumbers.length !== 5) {
-    return ""
-} return checkedValueWithAnythingButNumbers.slice (0,2) + '-' + checkedValueWithAnythingButNumbers.slice(2) 
-}
+// isInputWithNumbersSpacesAndDashes = (input) => {
+//     if (input.length === 6 && input[2].test(/[ -]/) && input.test[0](/[0-9]/))  {
+//         return input
+//     } else if (input.length === 5 && input.test (/[0-9]/)) {
+//         return input
+//     } else return ""
+// }
 
-const result1 = getCleanedZipCode("124223")
-console.log(result1)
+// const getCleanedZipCode = (value) => {
+// const checkedValue = isInputStringOrNumber(value)
+// const checkedValueWithNumbersAndSpacesAndDashes = isInputWithNumbersSpacesAndDashes (checkedValue)
+// console.log (checkedValueWithNumbersAndSpacesAndDashes)
+// const checkedValueWithAnythingButNumbers = checkedValueWithNumbersAndSpacesAndDashes.test (/[0-9]/)
+// if (checkedValueWithAnythingButNumbers.length !== 5) {
+//     return ""
+// } return checkedValueWithAnythingButNumbers.slice (0,2) + '-' + checkedValueWithAnythingButNumbers.slice(2) 
+// }
+
+// const result1 = getCleanedZipCode("124223")
+// console.log(result1)
