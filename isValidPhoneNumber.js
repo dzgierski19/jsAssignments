@@ -26,25 +26,22 @@ const convertNumberToStringOrReturnString = (input) => {
 
 const isValidPhoneNumber = (value) => {
     const modifiedInput = convertNumberToStringOrReturnString (value)
-    console.log (modifiedInput)
-    if (modifiedInput.length === 9 && modifiedInput.test (/[0-9]/)) {
+    if (modifiedInput.length === 9 && (/^\d/).test(modifiedInput) === true) {
         return true
-    } else if (modifiedInput.length === 11 &&  modifiedInput[3].test(/-/) &&  modifiedInput[7].test(/-/)) {
-        return true
-    } else if (modifiedInput.length === 11 &&  modifiedInput[3].test(/ /) && modifiedInput[7].test(/ /)) {
+    } else if (modifiedInput.length === 11 && (/^\d{3}[ ]\d{3}[ ]\d{3}$/).test (modifiedInput) || (/^\d{3}[-]\d{3}[-]\d{3}$/).test (modifiedInput) === true){
         return true
     } else {
         return false
     } 
 }
 
-const result1 = isValidPhoneNumber("123-456-789")
+const result1 = isValidPhoneNumber("aaa-456-789")
 console.log (result1)
 
-const result2 = isValidPhoneNumber ("123 456 789")
+const result2 = isValidPhoneNumber ("123-456-789")
 console.log (result2)
 
-const result3 = isValidPhoneNumber (1234567891)
+const result3 = isValidPhoneNumber (123456789)
 console.log (result3)
 
 const result4 = isValidPhoneNumber ("123-456 789")

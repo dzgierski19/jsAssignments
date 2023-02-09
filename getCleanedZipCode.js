@@ -42,7 +42,7 @@ const isValueInRange = (input) => {
 //isString oraz isNumber OK
 //napisać regEx dwie pierwsze cyfry, trzeci spacja -, 4 do konca cyfry
 
-const getCleanedZipCode = isValueInRange("12-355") 
+const getCleanedZipCode = isValueInRange("12355") 
 
 console.log (getCleanedZipCode)
 
