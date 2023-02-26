@@ -26,9 +26,9 @@ const convertNumberToStringOrReturnString = (input) => {
 
 const isValidPhoneNumber = (value) => {
     const modifiedInput = convertNumberToStringOrReturnString (value)
-    if (modifiedInput.length === 9 && (/^\d/).test(modifiedInput) === true) {
+    if ((/^\d{9}$/).test(modifiedInput)) {
         return true
-    } else if (modifiedInput.length === 11 && (/^\d{3}[ ]\d{3}[ ]\d{3}$/).test (modifiedInput) || (/^\d{3}[-]\d{3}[-]\d{3}$/).test (modifiedInput) === true){
+    } else if ((/^\d{3}[ ]\d{3}[ ]\d{3}$/).test (modifiedInput) || (/^\d{3}[-]\d{3}[-]\d{3}$/).test (modifiedInput)){
         return true
     } else {
         return false

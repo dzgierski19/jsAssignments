@@ -31,12 +31,13 @@ const isStringOrNumber = (input) => {
 const isValueInRange = (input) => {
     isStringOrNumber(input)
     const numberToString = input.toString()
-    if (numberToString.length === 5 && (/^\d{5}$/).test(input) === true) {
+    if ((/^\d{5}$/).test(input) === true) {
         return numberToString.slice (0,2) + '-' + numberToString.slice(2)
     } else if ((/^\d{2}[ -]\d{3}$/).test(input) === true) {
         return input.slice(0,2) + '-' + input.slice(3) } 
     return ""
 }
+
 
 
 //isString oraz isNumber OK
