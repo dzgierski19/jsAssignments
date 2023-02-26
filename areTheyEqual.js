@@ -87,4 +87,3 @@ const stringified = JSON.stringify(person3);
 
 // console.log(stringified)
 
-// skopiwoac zadania z poprawieniem readme file opis zadania ma byc w README, a pozniej zacommitowac. zrobic nowego brancha na ktorym rozwiazauje zadanie i commitowac na biezaco na brancha. push brancha na github, zrobic pull request, w polu reviewers dodac Michala (mwakulinski). pozniej Michal zrobi code review
